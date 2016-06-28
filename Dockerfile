@@ -4,7 +4,7 @@ MAINTAINER zhouyq <zhouyq@goodrain.com>
 
 
 # timezone
-apk add --no-cache tzdata libc6-compat && \
+RUN apk add --no-cache tzdata libc6-compat && \
        ln -s /lib /lib64 && \
        cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
        echo "Asia/Shanghai" >  /etc/timezone && \
