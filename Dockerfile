@@ -15,6 +15,7 @@ RUN apk add --no-cache bash git nodejs && \
     sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd
 
 RUN mkdir /opt/ && \
+    cd /opt && \
     git clone https://github.com/monterail/redis-browser.git && \
     cd redis-browser && \
     gem install redis-browser
