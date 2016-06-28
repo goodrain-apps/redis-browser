@@ -4,7 +4,8 @@ MAINTAINER zhouyq <zhouyq@goodrain.com>
 
 
 # timezone
-RUN apk add --no-cache tzdata && \
+apk add --no-cache tzdata libc6-compat && \
+       ln -s /lib /lib64 && \
        cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
        echo "Asia/Shanghai" >  /etc/timezone && \
        date && apk del --no-cache tzdata
