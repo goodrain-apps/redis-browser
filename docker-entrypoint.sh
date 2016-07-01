@@ -10,7 +10,7 @@ if [ $ENABLE_AUTH != "" ];then
 cat >> /opt/redis-browser/lib/redis-browser.rb << END
 RedisBrowser::Web.class_eval do
   use Rack::Auth::Basic, "Protected Area" do |username, password|
-    username == 'foo' && password == 'bar'
+    username == "ENV['RB_USER']" && password == "ENV['RB_PASS']"
   end
 end
 END
