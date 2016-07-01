@@ -7,6 +7,9 @@ cd /opt/redis-browser
 
 if [ $ENABLE_AUTH != "" ];then
 
+RB_USER=${RB_USER:-admin}
+RB_PASS=${RB_PASS:-pass123465}
+
 cat >> /opt/redis-browser/lib/redis-browser.rb << END
 RedisBrowser::Web.class_eval do
   use Rack::Auth::Basic, "Protected Area" do |username, password|
